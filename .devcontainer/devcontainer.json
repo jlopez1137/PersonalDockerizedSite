@@ -1,84 +1,25 @@
 {
-    "name": "Flask Personal Site Development",
-    "image": "mcr.microsoft.com/devcontainers/python:3.11",
-    
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {}
-    },
-    
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-python.flake8",
-                "ms-python.pylint",
-                "ms-python.black-formatter",
-                "ms-toolsai.jupyter",
-                "ms-vscode.vscode-json",
-                "bradlc.vscode-tailwindcss",
-                "ms-vscode.vscode-typescript-next",
-                "ms-vscode.vscode-eslint",
-                "formulahendry.auto-rename-tag",
-                "ms-vscode.live-server",
-                "ms-python.debugpy",
-                "ms-python.isort"
-            ],
-            "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.linting.enabled": true,
-                "python.linting.flake8Enabled": true,
-                "python.linting.pylintEnabled": true,
-                "python.formatting.provider": "black",
-                "python.testing.pytestEnabled": true,
-                "python.testing.unittestEnabled": false,
-                "python.testing.pytestArgs": [
-                    "test_app.py",
-                    "test_routes.py"
-                ],
-                "editor.formatOnSave": true,
-                "editor.codeActionsOnSave": {
-                    "source.organizeImports": true
-                },
-                "files.exclude": {
-                    "**/__pycache__": true,
-                    "**/*.pyc": true
-                }
-            }
-        }
-    },
-    
-    "postCreateCommand": "pip install -r requirements.txt && python -m pytest --version",
-    
-    "forwardPorts": [5000, 5001],
-    "portsAttributes": {
-        "5000": {
-            "label": "Flask App",
-            "onAutoForward": "notify"
-        },
-        "5001": {
-            "label": "Flask Test",
-            "onAutoForward": "silent"
-        }
-    },
-    
-    "mounts": [
-        "source=${localWorkspaceFolder}/.devcontainer/scripts,target=/usr/local/share/scripts,type=bind,consistency=cached"
-    ],
-    
-    "remoteUser": "vscode",
-    
-    "containerEnv": {
-        "FLASK_APP": "app.py",
-        "FLASK_ENV": "development",
-        "PYTHONPATH": "/workspaces/${localWorkspaceFolderBasename}",
-        "SECRET_KEY": "dev-secret-key-for-codespaces"
-    },
-    
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    
-    "postStartCommand": "echo 'Flask development environment ready! Run: python app.py'",
-    
-    "shutdownAction": "stopContainer"
+  "name": "Personal Website Flask App",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.flask"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": {
+      "label": "Flask App"
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt && python -c 'from DAL import init_db; init_db()'"
 }
