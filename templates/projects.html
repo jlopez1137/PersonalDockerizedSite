@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Projects — Joaquin Lopez{% endblock %}
+
+{% block meta_description %}Projects by Joaquin Lopez - Python/Flask web applications, strategic analysis simulations, and business technology solutions.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>My Projects</h1>
+    <p>I keep my work on GitHub; here are selected repositories and what they show.</p>
+    
+    <!-- Database Projects Table -->
+    {% if projects %}
+    <div class="projects-table-section">
+        <h2>Project Portfolio</h2>
+        <div class="table-responsive">
+            <table class="projects-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Image File</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in projects %}
+                    <tr>
+                        <td>
+                            <img src="{{ url_for('static', filename='images/' + project.image_filename) }}" 
+                                 alt="{{ project.title }} image" 
+                                 class="project-thumbnail" />
+                        </td>
+                        <td class="project-title">{{ project.title }}</td>
+                        <td class="project-description">{{ project.description }}</td>
+                        <td class="project-filename">{{ project.image_filename }}</td>
+                        <td class="project-actions">
+                            <form method="POST" action="{{ url_for('delete_project_route', project_id=project.id) }}" 
+                                  onsubmit="return confirmDelete('{{ project.title }}')" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete project">
+                                    <span aria-hidden="true">🗑️</span> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Static Projects List -->
+    <div class="projects-list">
+        <!-- Project 1 -->
+        <article class="card" aria-labelledby="project1-heading">
+            <h2 id="project1-heading">
+                <a href="https://github.com/jlopez1137/corporate-programs-site-flask-" target="_blank" rel="noopener noreferrer">Corporate Programs Web App</a>
+            </h2>
+            <p>Automated course enrollment system that processes bulk student data and generates dynamic reports, reducing manual entry time by 80%.</p>
+            <div class="project-meta">
+                <span class="tech-stack"><strong>Tech:</strong> Python, Flask, SQLite</span>
+                <span class="focus"><strong>Focus:</strong> Data import automation, ERD normalization, CRUD patterns</span>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="https://github.com/jlopez1137/corporate-programs-site-flask-" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card" aria-labelledby="project2-heading">
+            <h2 id="project2-heading">
+                <a href="https://github.com/jlopez1137/personal-website" target="_blank" rel="noopener noreferrer">Personal Website</a>
+            </h2>
+            <p>Clean, accessible portfolio site built with semantic HTML and modern CSS, demonstrating frontend fundamentals and responsive design principles.</p>
+            <div class="project-meta">
+                <span class="tech-stack"><strong>Tech:</strong> HTML5, CSS3, JavaScript</span>
+                <span class="focus"><strong>Focus:</strong> Semantic markup, accessibility, responsive design</span>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="https://github.com/jlopez1137/personal-website" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+        </article>
+    </div>
+
+    <!-- Browse All Repositories -->
+    <section class="card" style="text-align: center; margin-top: 2rem;">
+        <h2>Explore More</h2>
+        <p>These are just a few highlights from my GitHub activity.</p>
+        <div style="margin-top: 1.5rem;">
+            <a href="https://github.com/jlopez1137" class="btn" target="_blank" rel="noopener noreferrer">Browse all repositories →</a>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="card" style="text-align: center; margin-top: 2rem;">
+        <h2>Interested in Working Together?</h2>
+        <p>I'm always excited to take on new challenges and collaborate on interesting projects.</p>
+        <div style="margin-top: 1.5rem;">
+            <a href="{{ url_for('contact') }}" class="btn">Get In Touch</a>
+            <a href="{{ url_for('resume') }}" class="btn btn-secondary">View My Resume</a>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function confirmDelete(projectTitle) {
+    return confirm(`Are you sure you want to delete the project "${projectTitle}"? This action cannot be undone.`);
+}
+</script>
+{% endblock %}

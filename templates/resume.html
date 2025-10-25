@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Resume — Joaquin Lopez{% endblock %}
+
+{% block meta_description %}Resume of Joaquin Lopez - MSIS student at IU Kelley with experience in business management, Python development, and strategic analysis.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Resume</h1>
+    
+    <!-- Contact Information -->
+    <section class="card" aria-labelledby="contact-info-heading">
+        <h2 id="contact-info-heading">Contact Information</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div>
+                <span class="label">Email:</span><br>
+                <a href="mailto:lopejo@iu.edu">lopejo@iu.edu</a>
+            </div>
+            <div>
+                <span class="label">Phone:</span><br>
+                <a href="tel:+12197301399">(219) 730-1399</a>
+            </div>
+            <div>
+                <span class="label">Location:</span><br>
+                Bloomington, IN
+            </div>
+            <div>
+                <span class="label">LinkedIn:</span><br>
+                <a href="https://www.linkedin.com/in/joaquinolopez" target="_blank" rel="noopener noreferrer">linkedin.com/in/joaquinolopez</a>
+            </div>
+            <div>
+                <span class="label">GitHub:</span><br>
+                <a href="https://github.com/jlopez1137" target="_blank" rel="noopener noreferrer">github.com/jlopez1137</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="resume-section" aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Professional Summary</h2>
+        <p>MSIS student at IU Kelley with a strong foundation in business management and growing expertise in information systems. Experienced in Python development, data analysis, and strategic decision-making. Passionate about building practical technology solutions that solve real business problems.</p>
+    </section>
+    
+    <div style="margin: 2rem 0;"></div>
+
+    <!-- Work Experience -->
+    <section class="resume-section" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Professional Experience</h2>
+        
+        <div class="experience-item">
+            <h3 class="job-title">Sales Associate</h3>
+            <div class="company">Nike – Michigan City, IN</div>
+            <div class="dates">May 2022 – August 2023</div>
+            <ul>
+                <li>Exceeded individual and team sales goals through needs-based recommendations and upselling</li>
+                <li>Resolved customer concerns promptly to strengthen loyalty and retention</li>
+                <li>Maintained store appearance and collaborated cross-shift to meet daily targets</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="resume-section" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        
+        <div class="education-item">
+            <h3 class="degree-title">Master of Science in Information Systems</h3>
+            <div class="school">Indiana University, Kelley School of Business – Bloomington, IN</div>
+            <div class="dates">Dec 2026</div>
+            <p><strong>Certificate in IS Foundations:</strong> Programming (Python, SQL, HTML/CSS), IT infrastructure, IT in business, data/systems modeling; prototyping project and case competition (Summer 2025)</p>
+        </div>
+
+        <div class="education-item">
+            <h3 class="degree-title">B.S. in Business, Management (Minor: Psychology)</h3>
+            <div class="school">Indiana University, Kelley School of Business – Bloomington, IN</div>
+            <div class="dates">May 2025 — GPA 3.21/4.00</div>
+            <p><strong>Awards:</strong> Dean's Council Scholarship; HHSP Hudson Program Scholarship; Kelley Momentum Leader Scholar</p>
+        </div>
+
+        <div class="education-item">
+            <h3 class="degree-title">A.S. in Business Administration (Cum Laude) and A.G.S. in General Studies (Cum Laude)</h3>
+            <div class="school">Ivy Tech Community College – Michigan City, IN</div>
+            <div class="dates">Aug 2017 – May 2021 — GPA 3.29/4.00</div>
+            <p><strong>Technical Certificate:</strong> Business Administration</p>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="resume-section" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div>
+                <h3>Programming & Web</h3>
+                <ul class="skills-list-resume">
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Flask</li>
+                    <li>Git/GitHub</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Tools</h3>
+                <ul class="skills-list-resume">
+                    <li>Excel (advanced formulas, pivots, charts)</li>
+                    <li>PowerPoint</li>
+                    <li>Tableau</li>
+                    <li>VS Code</li>
+                    <li>pgAdmin</li>
+                    <li>SQLite</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Business</h3>
+                <ul class="skills-list-resume">
+                    <li>Case competition strategy</li>
+                    <li>Market analysis</li>
+                    <li>Venture capital evaluation</li>
+                    <li>Idea validation</li>
+                    <li>Business model development</li>
+                    <li>ERD/Normalization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="resume-section" aria-labelledby="certifications-heading">
+        <h2 id="certifications-heading">Certifications & Achievements</h2>
+        <ul>
+            <li><strong>Leadership Experience</strong> - IU Hoosier Scholars Mentor Collective (Aug 2023 – May 2025)</li>
+            <li><strong>Academic Excellence</strong> - Dean's Council Scholarship, HHSP Hudson Program Scholarship, Kelley Momentum Leader Scholar</li>
+            <li><strong>Strategic Analysis</strong> - Led market strategy for International Competitive Strategy Simulation</li>
+            <li><strong>Technical Projects</strong> - Built Corporate Programs Web App with Python/Flask and SQLite</li>
+        </ul>
+    </section>
+
+    <!-- Download Options -->
+    <section class="card" style="text-align: center; margin-top: 2rem;">
+        <h2>Download Resume</h2>
+        <p>Prefer a PDF version? Download my resume in a traditional format.</p>
+        <!-- TODO: Replace with actual PDF when available -->
+        <!-- <a href="{{ url_for('static', filename='img/joaquin-lopez-resume.pdf') }}" class="btn" download>Download PDF Resume</a> -->
+        <p><em>PDF version coming soon - currently updating with latest information</em></p>
+    </section>
+</div>
+{% endblock %}

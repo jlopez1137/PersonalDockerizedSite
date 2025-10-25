@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}About — Joaquin Lopez{% endblock %}
+
+{% block meta_description %}About Joaquin Lopez - MSIS student at IU Kelley with management background, passionate about building practical tech solutions and data-driven decisions.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>About Me</h1>
+    
+    <!-- Bio Section -->
+    <section class="card" aria-labelledby="bio-heading">
+        <h2 id="bio-heading">My Story</h2>
+        <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="{{ url_for('static', filename='img/me-placeholder.jpg') }}" data-cdn-key="headshot" alt="Portrait of Joaquin Lopez" style="width: 100%; max-width: 300px; border-radius: 0.5rem; margin-bottom: 1rem;">
+            </div>
+            <div style="flex: 2; min-width: 300px;">
+                <p>I'm currently pursuing my Master of Science in Information Systems at IU Kelley (Dec 2026), building on my B.S. in Business Management (May 2025). I'm blending technical foundations with business judgment to create practical solutions.</p>
+                <p>What I'm excited about: building small applications that solve real problems, making data-informed decisions, and maintaining clear communication throughout the development process.</p>
+                <p>I'm a strong believer in Christ, passionate about sports, committed to lifelong learning, and a music enthusiast. These values drive my approach to both technology and life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Facts -->
+    <section class="card" aria-labelledby="facts-heading">
+        <h2 id="facts-heading">Quick Facts</h2>
+        <dl>
+            <dt><strong>Location:</strong></dt>
+            <dd>Bloomington, IN</dd>
+            
+            <dt><strong>Degree Progress:</strong></dt>
+            <dd>MSIS (Dec 2026), B.S. Management (May 2025)</dd>
+            
+            <dt><strong>Current Focus:</strong></dt>
+            <dd>Python, Flask, SQL, and business strategy integration</dd>
+            
+            <dt><strong>Interests:</strong></dt>
+            <dd>Software development, market analysis, and strategic decision-making</dd>
+            
+            <dt><strong>Contact:</strong></dt>
+            <dd><a href="mailto:lopejo@iu.edu">lopejo@iu.edu</a> | <a href="https://www.linkedin.com/in/joaquinolopez" target="_blank" rel="noopener noreferrer">LinkedIn</a></dd>
+        </dl>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="card" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Skills & Expertise</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div>
+                <h3>Programming & Web</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Flask</li>
+                    <li>Git/GitHub</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Tools</h3>
+                <ul>
+                    <li>Excel (advanced formulas, pivots, charts)</li>
+                    <li>PowerPoint</li>
+                    <li>Tableau</li>
+                    <li>VS Code</li>
+                    <li>pgAdmin</li>
+                    <li>SQLite</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Business</h3>
+                <ul>
+                    <li>Case competition strategy</li>
+                    <li>Market analysis</li>
+                    <li>Venture capital evaluation</li>
+                    <li>Idea validation</li>
+                    <li>Business model development</li>
+                    <li>ERD/Normalization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Now Section -->
+    <section class="card" aria-labelledby="now-heading">
+        <h2 id="now-heading">Now</h2>
+        <p>TODO: Add current learning focus and projects for this term. This section will highlight what I'm actively building, studying, or exploring right now.</p>
+        <p><em>Placeholder: Currently diving deeper into database optimization techniques and exploring advanced Flask patterns for scalable web applications.</em></p>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="card" style="text-align: center;">
+        <h2>Let's Work Together</h2>
+        <p>I'm always excited to collaborate on interesting projects and discuss new opportunities.</p>
+        <div style="margin-top: 2rem;">
+            <a href="{{ url_for('contact') }}" class="btn">Get In Touch</a>
+            <a href="{{ url_for('resume') }}" class="btn btn-secondary">View My Resume</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found — Joaquin Lopez{% endblock %}
+
+{% block meta_description %}The page you're looking for doesn't exist.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center" style="padding: 4rem 0;">
+        <h1 class="display-1">404</h1>
+        <h2>Page Not Found</h2>
+        <p class="lead">Sorry, the page you're looking for doesn't exist.</p>
+        <div style="margin-top: 2rem;">
+            <a href="{{ url_for('index') }}" class="btn">Go Home</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-secondary">Contact Me</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

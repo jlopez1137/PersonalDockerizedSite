@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You — Joaquin Lopez{% endblock %}
+
+{% block meta_description %}Thank you for your message! I'll get back to you as soon as possible.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="thank-you" aria-labelledby="thank-you-heading">
+        <h1 id="thank-you-heading">Thank You!</h1>
+        <p>Your message has been received successfully. I appreciate you taking the time to reach out, and I'll get back to you as soon as possible.</p>
+        
+        <div class="card" style="max-width: 600px; margin: 2rem auto;">
+            <h2>What Happens Next?</h2>
+            <ul>
+                <li><strong>Immediate:</strong> You'll receive an automated confirmation email (if you provided one)</li>
+                <li><strong>Within 24 hours:</strong> I'll personally review your message and respond</li>
+                <li><strong>Follow-up:</strong> We can schedule a call or meeting if needed</li>
+            </ul>
+        </div>
+
+        <div class="card" style="max-width: 600px; margin: 2rem auto;">
+            <h2>In the Meantime</h2>
+            <p>Feel free to explore more of my work and learn about my background:</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="{{ url_for('projects') }}" class="btn">View My Projects</a>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn About Me</a>
+                <a href="{{ url_for('resume') }}" class="btn btn-secondary">See My Resume</a>
+            </div>
+        </div>
+
+        <div class="card" style="max-width: 600px; margin: 2rem auto; text-align: center;">
+            <h2>Connect With Me</h2>
+            <p>You can also find me on social media and professional networks:</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="https://www.linkedin.com/in/joaquinolopez" class="btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/jlopez1137" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

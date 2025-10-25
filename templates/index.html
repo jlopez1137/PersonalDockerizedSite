@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Joaquin Lopez — Personal Webpage & Projects{% endblock %}
+
+{% block meta_description %}Joaquin Lopez - MSIS student at IU Kelley blending technical foundations with business strategy. Explore my projects and get in touch.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <h1 id="hero-heading">Build practical tech with business impact.</h1>
+            <p class="tagline">MSIS @ IU Kelley · Python · Data · Strategy</p>
+            <ul class="chip-list" role="list">
+                <li class="chip">Python</li>
+                <li class="chip">SQL</li>
+                <li class="chip">Flask</li>
+                <li class="chip">HTML/CSS</li>
+                <li class="chip">ERD & DB Design</li>
+                <li class="chip">Analytics</li>
+            </ul>
+            <div class="hero-actions">
+                <a href="{{ url_for('projects') }}" class="btn">View my work on GitHub</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-secondary">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links" aria-labelledby="quick-links-heading">
+        <h2 id="quick-links-heading">Explore</h2>
+        <div class="quick-grid">
+            <a class="quick-card" href="{{ url_for('projects') }}">
+                <h3>Projects</h3>
+                <p>Selected work with code, context, and impact.</p>
+            </a>
+            <a class="quick-card" href="{{ url_for('resume') }}">
+                <h3>Resume</h3>
+                <p>Experience, skills, and education at a glance.</p>
+            </a>
+            <a class="quick-card" href="{{ url_for('about') }}">
+                <h3>About</h3>
+                <p>Who I am and what I value in building.</p>
+            </a>
+            <a class="quick-card" href="{{ url_for('contact') }}">
+                <h3>Contact</h3>
+                <p>Reach out to collaborate or say hello.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Highlights -->
+    <section class="card" aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading">Highlights</h2>
+        <ul class="highlights-list" role="list">
+            <li>Corporate Programs app: CRUD, file automation, HTML/CSS reports</li>
+            <li>ICS simulation: data-driven decisions across markets</li>
+            <li>Focus: practical tools, clear communication, measurable outcomes</li>
+        </ul>
+        <p style="margin-top: 1rem;"><a href="{{ url_for('projects') }}" class="btn">Browse Projects</a></p>
+    </section>
+</div>
+{% endblock %}

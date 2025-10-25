@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Project — Joaquin Lopez{% endblock %}
+
+{% block meta_description %}Add a new project to Joaquin Lopez's portfolio.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Add New Project</h1>
+    <p>Add a new project to your portfolio. Make sure the image file is already placed in the <code>/static/images/</code> directory.</p>
+    
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Project Form -->
+    <div class="card">
+        <form method="POST" action="{{ url_for('new_project') }}" class="project-form">
+            <div class="form-group">
+                <label for="title">Project Title *</label>
+                <input type="text" 
+                       id="title" 
+                       name="title" 
+                       value="{{ title or '' }}"
+                       required 
+                       minlength="3"
+                       maxlength="100"
+                       placeholder="Enter project title">
+                <div class="help">Minimum 3 characters, maximum 100 characters</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Project Description *</label>
+                <textarea id="description" 
+                          name="description" 
+                          required 
+                          minlength="10"
+                          maxlength="500"
+                          rows="4"
+                          placeholder="Describe your project, technologies used, and key features">{{ description or '' }}</textarea>
+                <div class="help">Minimum 10 characters, maximum 500 characters</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="image_filename">Image Filename *</label>
+                <input type="text" 
+                       id="image_filename" 
+                       name="image_filename" 
+                       value="{{ image_filename or '' }}"
+                       required 
+                       placeholder="e.g., myapp.png">
+                <div class="help">
+                    Just the filename (e.g., myapp.png). Make sure the file exists in <code>/static/images/</code> directory.
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn">Add Project</button>
+                <a href="{{ url_for('projects') }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Instructions -->
+    <div class="card">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Place your project image file in the <code>/static/images/</code> directory</li>
+            <li>Enter the exact filename (including extension) in the Image Filename field</li>
+            <li>Fill in the project title and description</li>
+            <li>Click "Add Project" to save</li>
+        </ol>
+        <p><strong>Note:</strong> The image file must already exist in the <code>/static/images/</code> directory before submitting the form.</p>
+    </div>
+</div>
+{% endblock %}
