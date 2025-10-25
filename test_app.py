@@ -31,6 +31,8 @@ def client():
 @pytest.fixture
 def app_context():
     """Create an application context for testing."""
+    # Set testing configuration
+    app.config['TESTING'] = True
     with app.app_context():
         yield app
 
@@ -152,20 +154,32 @@ def test_404_error_handler(client):
 
 def test_database_operations(app_context):
     """Test database operations."""
+    # Get current projects count
+    initial_count = len(get_all_projects())
+    
     # Test inserting a project
     insert_project('Test Project', 'Test Description', 'test.jpg')
     projects = get_all_projects()
-    assert len(projects) == 1
-    assert projects[0]['title'] == 'Test Project'
+    assert len(projects) == initial_count + 1
     
-    # Test deleting a project
-    project_id = projects[0]['id']
+    # Find our test project (should be the first one since it's newest)
+    test_project = None
+    for project in projects:
+        if project['title'] == 'Test Project':
+            test_project = project
+            break
+    
+    assert test_project is not None
+    assert test_project['title'] == 'Test Project'
+    
+    # Test deleting the test project
+    project_id = test_project['id']
     success = delete_project(project_id)
     assert success is True
     
-    # Verify project is deleted
+    # Verify project is deleted (should be back to initial count)
     projects = get_all_projects()
-    assert len(projects) == 0
+    assert len(projects) == initial_count
 
 
 def test_app_error_handling(client):

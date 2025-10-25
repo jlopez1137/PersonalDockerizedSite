@@ -102,18 +102,22 @@ class TestProjectRoutes:
     
     def test_delete_project_existing(self, client):
         """Test deleting an existing project."""
+        # Get initial project count
+        initial_projects = get_all_projects()
+        initial_count = len(initial_projects)
+        
         # First create a project
         insert_project('Test Project', 'Test Description', 'test.jpg')
         projects = get_all_projects()
         project_id = projects[0]['id']
-        
+
         # Now delete it
         response = client.post(f'/projects/{project_id}/delete', follow_redirects=True)
         assert response.status_code == 200
-        
-        # Verify project is deleted
+
+        # Verify project is deleted (should be back to initial count)
         projects = get_all_projects()
-        assert len(projects) == 0
+        assert len(projects) == initial_count
     
     def test_delete_project_nonexistent(self, client):
         """Test deleting a non-existent project."""
@@ -198,10 +202,10 @@ class TestRouteParameters:
         # Test with string ID
         response = client.post('/projects/abc/delete')
         assert response.status_code == 404
-        
-        # Test with negative ID
+
+        # Test with negative ID - should return 404 since project doesn't exist
         response = client.post('/projects/-1/delete')
-        assert response.status_code == 302  # Should redirect
+        assert response.status_code == 404  # Project not found
     
     def test_route_methods(self, client):
         """Test that routes only accept appropriate HTTP methods."""
