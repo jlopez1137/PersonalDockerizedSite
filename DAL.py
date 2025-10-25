@@ -5,7 +5,7 @@ Handles SQLite database operations for projects.
 
 import sqlite3
 import os
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 # Database configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -72,7 +72,7 @@ def insert_project(title: str, description: str, image_filename: str) -> None:
         
         conn.commit()
 
-def get_project_by_id(project_id: int) -> Dict:
+def get_project_by_id(project_id: int) -> Optional[Dict]:
     """
     Retrieve a specific project by ID.
     
