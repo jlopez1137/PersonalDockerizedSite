@@ -61,7 +61,7 @@ def test_index_route(client):
     """Test the home page route."""
     response = client.get('/')
     assert response.status_code == 200
-    assert b'Personal Website' in response.data or b'Welcome' in response.data
+    assert b'Joaquin Lopez' in response.data or b'Personal' in response.data
 
 
 def test_about_route(client):
